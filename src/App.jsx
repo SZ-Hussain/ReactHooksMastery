@@ -1,16 +1,18 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 const App = () => {
-  
-  const [count, setCount] = useState(0);
-  const increaseCount = () => {
-    setCount((prev) => prev+1 );
-  }
 
+  const [count,setCount] = useState(0);
+  
+  useEffect(() => {
+    setTimeout(() => {
+      setCount(count => count+1);
+    },2000)
+  });
+  
   return (
     <>
-    <h1>Count: {count}</h1>
-    <button onClick={increaseCount}>increase</button>
+      <h1>I've rendered { count } times!</h1>
     </>
   )
 }
